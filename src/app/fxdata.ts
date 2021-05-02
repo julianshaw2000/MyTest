@@ -1,8 +1,8 @@
 export class Fxdata {
 
   constructor(
-    public currency: string,
-    public rate: number
+    private currency: string,
+    private rate: number
   ) {}
 
 }
