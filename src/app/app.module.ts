@@ -11,8 +11,7 @@ import { MaterialModule } from './material-module';
     AppComponent
   ],
   imports: [
-     HttpClientModule,
-
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import { FxapiService } from './fxapi.service';
 import { Fxdata } from './fxdata';
+import { Makefxlist } from './makefxlist';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ import { Fxdata } from './fxdata';
 
 export class AppComponent  implements OnInit {
 
+  title = 'test'
+
   displayedColumns: string[] = [ 'currency', 'rate'];
 
   dataSource: Fxdata[] = []
@@ -18,7 +21,6 @@ export class AppComponent  implements OnInit {
   constructor(
     private fxapiService: FxapiService
   ) { }
-
 
 
   ngOnInit(): void {
@@ -30,31 +32,16 @@ export class AppComponent  implements OnInit {
   getFxData()
   {
 
-    let fxResult:  Fxdata[] = []
-
-
-    this.fxapiService.getFxData().subscribe(
+     this.fxapiService.getFxData().subscribe(
        data => {
 
-         let arrayValues  = Object.values(data.rates)
-         let arrayKeys    = Object.keys(data.rates)
-
-         for (let i = 0; i < arrayKeys.length; i++) {
-
-            let pair = new Fxdata(arrayKeys[i], arrayValues[i] as number)
-
-            fxResult.push(pair)
-        }
-
-        this.dataSource   = fxResult
+         let makefxlist  = new Makefxlist()
+         this.dataSource = makefxlist.getFxresult(data.rates)
 
         }
 
     )
 
-
-
 }
-
 
 }

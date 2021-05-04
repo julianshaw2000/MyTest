@@ -1,9 +1,9 @@
 <!-- My table is based on the Angular Material table example
    https://stackblitz.com/angular/galxgbnjrpn?file=src%2Fapp%2Ftable-sticky-header-example.ts -->
 
-<div class="table-container" >
+<div class="table-container"  class="mat-elevation-z8"  style="margin: 0 15px">
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" >
 
   <!-- Currency Column -->
   <ng-container matColumnDef="currency">
@@ -22,5 +22,5 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
-
+<span>Developed by Julian Shaw</span>
 </div>
