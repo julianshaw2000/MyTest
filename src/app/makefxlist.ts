@@ -7,14 +7,13 @@ getFxresult( rates: any ): Fxdata[]
 {
     let fxResult:  Fxdata[] = []
 
-    let arrayValues:any[]  = Object.values(rates)
-    let arrayKeys          = Object.keys(rates)
 
-         for (let i = 0; i < arrayKeys.length; i++)
-          {
-            let pair = new Fxdata(arrayKeys[i], arrayValues[i] as number)
-            fxResult.push(pair)
+          for (let [key, value] of Object.entries(rates)) {
+
+                      let pair = new Fxdata(key, value as number)
+                      fxResult.push(pair)
           }
+
 
     return fxResult;
 
